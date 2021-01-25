@@ -13,11 +13,10 @@
 
     <ImageView
         android:id="@+id/user_img"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="180dp"
-        android:scaleType="fitXY"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/ic_launcher_background" />
 
@@ -51,8 +50,9 @@
         android:layout_marginTop="156dp"
         android:layout_marginRight="16dp"
         android:backgroundTint="@color/Blank"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_user"
@@ -103,7 +103,7 @@
                 android:id="@+id/address_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/location_img"
                 app:layout_constraintStart_toEndOf="@+id/location_img"
                 tools:text="@string/location_text" />
@@ -119,9 +119,10 @@
 
             <TextView
                 android:id="@+id/phone_txt"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/call_img"
                 app:layout_constraintStart_toEndOf="@+id/call_img"
                 tools:text="+33 6 86 57 90 14" />
@@ -139,11 +140,10 @@
                 android:id="@+id/facebook_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/internet_img"
                 app:layout_constraintStart_toEndOf="@+id/internet_img"
                 tools:text="www.facebook.fr/caroline" />
-
 
         </android.support.constraint.ConstraintLayout>
 

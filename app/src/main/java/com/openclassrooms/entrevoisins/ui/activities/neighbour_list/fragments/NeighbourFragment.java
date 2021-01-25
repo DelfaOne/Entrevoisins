@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.ui.activities.neighbour_list;
+package com.openclassrooms.entrevoisins.ui.activities.neighbour_list.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.activities.neighbour_detail.NeighbourDetailActivity;
+import com.openclassrooms.entrevoisins.ui.activities.neighbour_list.MyNeighbourRecyclerViewAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -29,8 +30,8 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
 
     private static final String TAG = "User click";
     private NeighbourApiService mApiService;
-    private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
+    private MyNeighbourRecyclerViewAdapter myNeighbourRecyclerViewAdapter;
 
 
     /**
@@ -56,6 +57,8 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        myNeighbourRecyclerViewAdapter = new MyNeighbourRecyclerViewAdapter(this);
+        mRecyclerView.setAdapter(myNeighbourRecyclerViewAdapter);
         return view;
     }
 
@@ -63,8 +66,7 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
      * Init the List of neighbours
      */
     private void initList() {
-        mNeighbours = mApiService.getNeighbours();
-        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours, this));
+        myNeighbourRecyclerViewAdapter.submitList(mApiService.getNeighbours());
     }
 
     @Override
@@ -96,12 +98,11 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     }
 
     @Override
-    public void onUserClick(int position) {
+    public void onUserClick(Neighbour neighbour) {
 
         Intent intent = new Intent(getContext(), NeighbourDetailActivity.class);
-        intent.putExtra("Neighbour", mNeighbours.get(position));
+        intent.putExtra("Neighbour", neighbour);
         startActivity(intent);
 
-        Log.d(TAG, "onUserClick: clicked");
     }
 }
