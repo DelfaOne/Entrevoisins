@@ -45,4 +45,10 @@ public interface NeighbourApiService {
      * @return {@link List}
      */
     void deleteFavorite(Neighbour neighbour);
+
+    /**
+     * Delete a Favorite Neighbour
+     * @return {@link List}
+     */
+    //boolean isFavorite(Neighbour neighbour);
 }

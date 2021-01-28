@@ -53,7 +53,6 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighbour_detail);
-
         ButterKnife.bind(this);
 
         getSupportActionBar().hide();
@@ -65,6 +64,8 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         backButtonClick();
 
         addFav();
+        setFavBtn();
+
     }
 
     public void setContent(Neighbour neighbour) {
@@ -88,11 +89,18 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         mBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Click", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), ListNeighbourActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    private void setFavBtn() {
+        if (mApiService.getFavorites().contains(m_Neighbour)) {
+            mFloatBtn.setImageResource(R.drawable.ic_star_24px);
+        } else {
+            mFloatBtn.setImageResource(R.drawable.ic_star_border_24px);
+        }
     }
 
 
@@ -100,8 +108,14 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         mFloatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mApiService.addFavorites(m_Neighbour);
+                if (!mApiService.getFavorites().contains(m_Neighbour)) {
+                    mApiService.addFavorites(m_Neighbour);
+                } else {
+                    mApiService.deleteFavorite(m_Neighbour);
+                }
+                setFavBtn();
                 EventBus.getDefault().post(new RefreshDataEvent());
+
             }
         });
     }

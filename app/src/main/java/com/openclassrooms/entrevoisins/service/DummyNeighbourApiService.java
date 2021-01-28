@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Dummy mock for the Api
  */
-public class DummyNeighbourApiService implements  NeighbourApiService {
+public class DummyNeighbourApiService implements NeighbourApiService {
 
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
     private List<Neighbour> favorites = new ArrayList<>();
@@ -35,6 +35,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     /**
      * {@inheritDoc}
+     *
      * @param neighbour
      */
     @Override
@@ -43,15 +44,27 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
     @Override
-    public List<Neighbour> getFavorites() { return favorites; }
+    public List<Neighbour> getFavorites() {
+        return favorites;
+    }
 
     @Override
     public void addFavorites(Neighbour neighbour) {
-        favorites.add(neighbour);
+        if (!favorites.contains(neighbour)) {
+            favorites.add(neighbour);
+        }
     }
 
     @Override
     public void deleteFavorite(Neighbour neighbour) {
         favorites.remove(neighbour);
     }
+
+    /*public boolean isFavorite(Neighbour neighbour) {
+        if (favorites.contains(neighbours)) {
+            return true;
+        } else {
+            return false;
+        }
+    }*/
 }
