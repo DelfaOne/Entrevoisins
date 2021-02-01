@@ -41,8 +41,9 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
 
     // UNIT TEST
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.1'
     testImplementation 'org.hamcrest:java-hamcrest:2.0.0.0'
+    testImplementation "org.mockito:mockito-core:2.28.2"
     // INSTRUMENTATION TEST
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
