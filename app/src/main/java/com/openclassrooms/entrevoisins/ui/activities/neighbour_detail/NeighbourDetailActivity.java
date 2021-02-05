@@ -2,21 +2,18 @@ package com.openclassrooms.entrevoisins.ui.activities.neighbour_detail;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.events.RefreshDataEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.activities.neighbour_list.ListNeighbourActivity;
 
@@ -70,7 +67,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
     public void setContent(Neighbour neighbour) {
         mNameTxt.setText(neighbour.getName());
-        Glide.with(this)
+        Glide.with(getApplicationContext())
                 .load(Uri.parse(neighbour.getAvatarUrl()))
                 .centerCrop()
                 .into(mImage);

@@ -1,8 +1,8 @@
 package com.openclassrooms.entrevoisins.utils;
 
-import android.support.annotation.IdRes;
-import android.support.test.espresso.UiController;
-import android.support.test.espresso.ViewAction;
+import androidx.annotation.IdRes;
+import androidx.test.espresso.UiController;
+import androidx.test.espresso.ViewAction;
 import android.view.View;
 
 import org.hamcrest.Matcher;

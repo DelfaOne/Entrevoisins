@@ -28,6 +28,9 @@ public class NeighbourServiceTest {
         service = DI.getNewInstanceApiService();
     }
 
+    /**
+     * Check if neighbourList contains all the neighbour generate by DUMMY_NEIGHBOURS
+     */
     @Test
     public void getNeighboursWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();
@@ -35,6 +38,9 @@ public class NeighbourServiceTest {
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
 
+    /**
+     * Check if a neighbour is correctly deleted
+     */
     @Test
     public void deleteNeighbourWithSuccess() {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
@@ -42,6 +48,9 @@ public class NeighbourServiceTest {
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
 
+    /**
+     * Check if getFavorites() return all neighbour added in favoriteList
+     */
     @Test
     public void getFavoriteWithSuccess() {
         Neighbour neighbour = new Neighbour(1, "Toto", "toto.png", "rue de toto", "0356756984", "Lorem ipsum");
@@ -50,6 +59,9 @@ public class NeighbourServiceTest {
 
     }
 
+    /**
+     * Check if addFavorites() correctly add neighbour in favoriteList
+     */
     @Test
     public void addFavoriteWithSuccess() {
         Neighbour neighbour = new Neighbour(1, "Toto", "toto.png", "rue de toto", "0356756984", "Lorem ipsum");
@@ -57,6 +69,9 @@ public class NeighbourServiceTest {
         assertTrue(service.getFavorites().contains(neighbour));
     }
 
+    /**
+     * Check if deleteFavorite() correctly delete neighbour in favoriteList
+     */
     @Test
     public void deleteFavoriteWithSuccess() {
         Neighbour deletedNeighbour = new Neighbour(1, "Toto", "toto.png", "rue de toto", "0356756984", "Lorem ipsum");

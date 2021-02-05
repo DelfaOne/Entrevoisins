@@ -46,9 +46,4 @@ public interface NeighbourApiService {
      */
     void deleteFavorite(Neighbour neighbour);
 
-    /**
-     * Delete a Favorite Neighbour
-     * @return {@link List}
-     */
-    //boolean isFavorite(Neighbour neighbour);
 }
