@@ -6,13 +6,13 @@ Ce dépôt contient une mini-application pour le P3 du parcours **Grande École 
 
 Développement sous Android Studio 4.1 avec Java
 
-#Fonctionnalités déjà présentes
+# Fonctionnalités déjà présentes
 
 - Lister mes voisins
 - Ajouter un voisin
 - Suppression d’un voisin
 
-#Fonctionnalités ajoutées
+# Fonctionnalités ajoutées
 
 - Création d'une vue qui affiche le détail d'un voisin
 - Possibilité d'ajouter un voisin à une liste de favoris
@@ -20,7 +20,7 @@ Développement sous Android Studio 4.1 avec Java
 - Ajouts de tests unitaires
 - Ajouts de tests instrumentalisés
 
-#Bibliothèques utilisées
+# Bibliothèques utilisées
 
 - Glide
 - Butterknife
@@ -28,10 +28,10 @@ Développement sous Android Studio 4.1 avec Java
 - JUnit
 - Espresso
 
-#Installation
+# Installation
 - Télécharger ou cloner le répertoire sur votre répertoire local: https://github.com/DelfaOne/Entrevoisins.git
 - Lancer Android Studio, Open/File et choisir le fichier téléchargé
 
-#Lancement de l'application
+# Lancement de l'application
 - Synchroniser toutes les dépendences gradle lors du premier lancement
 - Cliquer sur Run
